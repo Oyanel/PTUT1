@@ -1,0 +1,31 @@
+<html ng-app="PTUT">
+  <head>
+    <meta charset="utf-8">
+    <title>PTUT</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="js/app.js"></script>
+  </head>
+  <body ng-controller="velov">
+      <nav>
+      <div class ="nav-wrapper">
+          <a href="" class="brand-logo center">PTUT</a>
+          <ul class="left hide-on-med-and-down">
+              <li class="active"><a href="index.html">Liste des stations</a></li>
+              <li><a href="">Graph</a></li>
+              <li><a href="">Map interactive    </a></li>
+          </ul>
+      </div>
+      </nav>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Number</th>
+      </tr>
+      <tr ng-repeat="stat in station  ">
+        <td>{{stat.name}}</td>
+	<td>{{stat.number}}</td>
+      </tr>
+    </table>
+  </body>
+</html>
