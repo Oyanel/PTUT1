@@ -3,7 +3,8 @@
     <meta charset="utf-8">
     <title>PTUT</title>
     <link rel="stylesheet" href="css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/donnees.js"></script>
   </head>
   <body>
@@ -17,9 +18,8 @@
           </ul>
       </div>
       </nav>
-      <div>
-          <canvas id="myChart" width="400" height="400"></canvas>
-      </div>
-      <script src="js/map.js"></script>
+      <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+      <script src="js/graph.js"></script>
   </body>
 </html>
