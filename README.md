@@ -1,2 +1,4 @@
 # PTUT1
-Projet Tutoré d'algo &amp; BD
+1er Projet Tutoré de 3A
+
+Partie frontend de l'application web

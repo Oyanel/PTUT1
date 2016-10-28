@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PTUT</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+    <link rel="stylesheet" href="css/materialize.min.css">
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwCRQ2_uyv61FiqnD9V0EuoBon-xdSpc4&callback=initMap">
+        </script>
+
+  </head>
+  <body>
+      <nav>
+        <div class ="nav-wrapper">
+            <a href="" class="brand-logo center">PTUT</a>
+            <ul class="left hide-on-med-and-down">
+                <li><a href="index.html">Liste des stations</a></li>
+                <li><a href="graph.html">Graph</a></li>
+                <li class="active"><a href="map.html">Map interactive</a></li>
+            </ul>
+        </div>
+      </nav>
+      <div id="map">
+
+      </div>
+      <script src="js/map.js"></script>
+  </body>
+</html>
