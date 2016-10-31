@@ -1,8 +1,8 @@
 function initMap() {
-    var myLatLng = {lat: 45.750000, lng: 4.850000};
+    var lyon = {lat: 45.750000, lng: 4.850000};
     var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
-    center: myLatLng
+    center: lyon
 
   });
 
@@ -12,10 +12,21 @@ function initMap() {
     locations.push(LatLng);
   }
     var markers = locations.map(function(location, i) {
-          return new google.maps.Marker({
+          var infowindow = new google.maps.InfoWindow({
+            content: "<b>" + station[i].name + "</b></br>Nombre de vélos : " + station[i].bike_stands + "</br>Nombre de places : " + station[i].available_bike_stands
+          });
+
+          var marker = new google.maps.Marker({
             position: location,
             title: station[i].name
           });
+
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+
+          return marker;
         });
+
   var markerCluster = new MarkerClusterer(map, markers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 }
