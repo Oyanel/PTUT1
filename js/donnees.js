@@ -17,6 +17,6 @@ $.ajax({
                         station[i].available_bikes + '</td></tr>';
             }
             liste += '</tbody></table>'
-            document.getElementById("id01").innerHTML = liste;
+            document.getElementById("liste").innerHTML = liste;
 
     }});

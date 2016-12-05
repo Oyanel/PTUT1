@@ -51,6 +51,7 @@ function remplirTab(tableau) {
    }
 }
 remplirTab(tab);
+
 google.charts.load('current', {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
