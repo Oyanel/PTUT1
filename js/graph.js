@@ -4,8 +4,8 @@ function remplirTab(tableau) {
   for(var i = 0; i< tabCommune.length; i++){
     tableau.push([tabCommune[i], null]);
   }
-  for (var i = 0; i < station.length; i++) {
-      switch(station[i].commune){
+  for (var i = 0; i < stations.length; i++) {
+      switch(stations[i].commune){
         case "Lyon 1 er":
           tableau[1][1] += 1;
           break;
