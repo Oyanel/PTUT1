@@ -14,8 +14,12 @@ function initMap() {
     locations.push(LatLng);
   }
     var markers = locations.map(function(location, i) {
-          var infowindow = new google.maps.InfoWindow({
-            content: "<b>" + stations[i].name + "</b></br>Nombre de vélos : " + stations[i].bike_stands + "</br>Nombre de places : " + stations[i].available_bike_stands
+          var infoWindow = new google.maps.InfoWindow({
+            content:
+            "<b>" + stations[i].name + "</b></br>" +
+            "Nombre de vélos : " + stations[i].bike_stands + "</br>" +
+            "Nombre de places : " + stations[i].available_bike_stands + "</br>" +
+            "<button>Click Me !</button>"
           });
 
           var marker = new google.maps.Marker({
@@ -24,7 +28,12 @@ function initMap() {
           });
 
           marker.addListener('click', function() {
-            infowindow.open(map, marker);
+              map.panTo(marker.getPosition());
+              if(map.zoom <=16) map.setZoom(16);
+              if (typeof( window.infoopened ) != 'undefined') infoopened.close();
+
+              infoWindow.open(map, marker);
+              infoopened = infoWindow;
           });
 
           return marker;
@@ -48,3 +57,5 @@ function calcRoute() {
       }
    });
 }
+
+
