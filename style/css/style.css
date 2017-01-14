@@ -4,7 +4,7 @@
 }
 
 a{
-    color: #ffffff;
+    color: #f9f2f4;
 }
 /* nav bar */
 
@@ -20,12 +20,27 @@ a{
     transition: all 0.5s ease;
 }
 
+.navbar {
+    padding-right: 10px;
+}
+
 .navbar-default{
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
+.navbar-brand {
+    padding-top: 10px;
+    margin-left: 15px;
+}
+
+.navbar-collapse.collapse.in {
+    margin-left: 0;
+    text-align: center;
+}
+
 /*nav bar end */
 
 .background-image {
@@ -45,10 +60,6 @@ a{
     right: 0;
     z-index: -9999;
     transform: scale(1.02);
-}
-
-.liste {
-    position: relative;
 }
 
 .centered {
@@ -71,7 +82,7 @@ a{
 
 
 .transparent{
-    margin-top: 100px;
+    margin-top: 50px;
     background: rgba(255,255,255,0.9);
     border: solid thin #ffffff;
     overflow: hidden;
@@ -81,7 +92,6 @@ a{
 
 #liste{
     color: #000;
-    margin-bottom: 60px;
 }
 
 #liste>table{
@@ -112,19 +122,29 @@ button.dropdown-toggle{
     box-shadow: 2px 2px 5px 0px #343434;
     filter:progid:DXImageTransform.Microsoft.Shadow(color=#343434, Direction=134, Strength=5);
 }
+
+
+.centered.container-fluid {
+    margin-top: -50px;
+}
 /* fin home */
 
 .material_button {
     border-radius: 0;
-    border: none;
+    border:none;
+}
+
+.search-panel button{
     padding: 1em 2em;
     font-size: 1.5em;
+}
+button.submit {
+    background-color: #122b40;
 }
 
 /* footer */
 footer .panel-footer{
     vertical-align: middle;
-    background: none;
     background-color: rgba(0,0,0,0.5);
 }
 
@@ -135,4 +155,26 @@ footer p{
     padding: 10px;
 }
 
+.polytech {
+    margin-right: 20px;
+}
+
 /* fin footer */
+.map {
+    height: 100%;
+}
+.map_container {
+    margin-top:50px;
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+input[type=text] {
+    border-radius: 0;
+}
+
+collapsed {
+    color: #ffffff;
+}

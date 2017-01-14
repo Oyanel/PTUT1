@@ -2,8 +2,8 @@
 <html lang="fr">
     <?php  include_once './head.php'?>
     <body>
-    <div class="background-image"></div>
-        <div class="content container">
+    <div class="background-image container-fluid"></div>
+        <div class="content container-fluid">
             <?php  include_once './header.html'?>
             <div class="centered container-fluid">
                 <h1 class="h1">Où allons nous ?</h1>
@@ -29,8 +29,8 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <!-- @TODO : populate -->
                                 </ul>
+                                <button class="btn btn-lg btn-primary btn-default material_button submit" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </div>
-                            <button class="btn btn-lg btn-primary btn-default material_button" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </div>
                 </div>
