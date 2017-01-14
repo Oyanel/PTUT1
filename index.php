@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <?php  include_once './head.html'?>
+    <?php  include_once './head.php'?>
     <body>
     <div class="background-image"></div>
         <div class="content container">
@@ -10,7 +10,7 @@
                     <div class="">
                         <div class="btn-group" role="group">
                             <div class="btn-group search-panel">
-                                <button type="button" class="btn btn-lg btn-default">Arrondissement</button>
+                                <button type="button" class="btn btn-lg btn-default">Commune&nbsp;/&nbsp;Arrondissement</button>
                                 <button type="button" class="btn btn-lg btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="caret"></span>
                                     <span class="sr-only">Toggle Dropdown</span>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <?php  include_once './footer.html'?>
+            <?php  include_once './footer.php'?>
         </div>
     </body>
 </html>

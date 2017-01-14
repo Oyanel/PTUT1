@@ -13,7 +13,7 @@ $.ajax({
         dataType : 'json',
         success : function(resultat, statut){
           // Affichage du tableau des stations
-            var liste = "<table id='myTable' class='table table-responsive'><thead class='thead-inverse'><tr><th>Number</th><th>Name</th><th>Commune</th><th>Address</th><th>Bike stands</th><th>Available bike stands</th><th>Available bikes</th></tr></thead><tbody>";
+            var liste = "<table id='myTable' class='table table-responsive table-striped'><thead><tr><th>Number</th><th>Name</th><th>Commune</th><th>Address</th><th>Bike stands</th><th>Available bike stands</th><th>Available bikes</th></tr></thead><tbody>";
             for(var i=0; i<resultat["values"].length;i++){
                 stations[i] = resultat.values[i];
                 liste += '<tr><td>' + stations[i].number + '</td><td>' +

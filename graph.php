@@ -5,8 +5,8 @@
 <div class="background-image"></div>
 <div class="content container">
     <?php  include_once './header.html'?>
-    <div class="container-fluid">
-        <div id="liste" class='transparent'"></div>
+    <div class="centered container-fluid">
+        <div id="chart_div" style="width: 900px; height: 500px;"></div>
     </div>
     <?php  include_once './footer.php'?>
 </div>

@@ -12,6 +12,19 @@ a{
     color: #aaaaaa;
 }
 
+.navbar-inverse{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.navbar-default{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
 /*nav bar end */
 
 .background-image {
@@ -48,18 +61,23 @@ a{
     white-space: normal;
 }
 
-.autoWidth{
-    width:auto;
+
+.transparent{
+    margin-top: 100px;
+    background: rgba(255,255,255,0.9);
+    border: solid thin #ffffff;
+    overflow: hidden;
 }
 
-.center_text{
-    width:95%
+/* liste */
+
+#liste{
+    color: #000;
+    margin-bottom: 60px;
 }
 
-.toggle_width{
-    width:5%;
+#liste>table{
+    color: #000;
 }
 
-.btn_grp{
-    width:100%;
-}
+/* fin liste */
