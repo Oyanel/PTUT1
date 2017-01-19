@@ -23,7 +23,7 @@ $.ajax({
                         stations[i].available_bikes + '</td></tr>';
             }
             liste += '</tbody></table>'
-            document.getElementById("liste").innerHTML = liste;
+            if(document.getElementById("liste")!=null)  document.getElementById("liste").innerHTML = liste;
 
     }});
 
