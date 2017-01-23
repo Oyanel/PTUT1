@@ -6,7 +6,7 @@
 <div class="content container-fluid">
     <?php include_once './includes/header.html' ?>
     <div class="container-fluid">
-        <div id="liste" class='transparent'"></div>
+        <div id="liste" class='transparent'></div>
     </div>
     <?php include_once './includes/footer.php' ?>
 </div>

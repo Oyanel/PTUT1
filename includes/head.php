@@ -1,8 +1,8 @@
 <head>
     <meta charset="utf-8">
     <title>PTUT</title>
-    <link href="../style/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../style/css/style.css" rel="stylesheet">
+    <link href="./style/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./style/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -14,7 +14,7 @@
         </script>
     <?php endif; ?>
     <?php if(preg_match('/map.php$/' , "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]")) : ?>
-        <script src="../style/js/donnees.js"></script>
-        <script src="../style/js/map.js"></script>
+        <script src="./style/js/donnees.js"></script>
+        <script src="./style/js/map.js"></script>
     <?php endif; ?>
 </head>
