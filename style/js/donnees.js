@@ -5,6 +5,8 @@ var stationProche = [];
 // Rayon de recherche en mètres
 var rayon = 500;
 
+var plusProche;
+
 // Requète de parsage du flux JSON dans le tableau JSON
 $.ajax({
        url : "https://download.data.grandlyon.com/ws/rdata/jcd_jcdecaux.jcdvelov/all.json", // La ressource ciblée
@@ -23,10 +25,16 @@ $.ajax({
                         stations[i].available_bikes + '</td></tr>';
             }
             liste += '</tbody></table>'
-            if(document.getElementById("liste")!=null)  document.getElementById("liste").innerHTML = liste;
+            document.getElementById("liste").innerHTML = liste;
 
     }});
 
+function redirect(lat, lng) {
+  latitude = longitude = 0;
+  latitude = lat;
+  longitude = lng;
+  document.location.href="map.html";
+}
 //Conversion des degrés en radian
 function convertRad(input){
         return (Math.PI * input)/180;
@@ -59,15 +67,13 @@ function comparaison(station){
         stationProche.unshift(proche);
       }
     }
-}
-comparaison(stations[294]);
-var plusProche = stationProche[1];
-for(var i=1; i<stationProche.length;i++){
-  if(stationProche[i].sta.available_bike_stands>0){
-    if(stationProche[i].distance < plusProche.distance){
-      plusProche = stationProche[i];
+
+    plusProche = stationProche[1];
+    for(var i=1; i<stationProche.length;i++){
+      if(stationProche[i].sta.available_bike_stands>0){
+        if(stationProche[i].distance < plusProche.distance){
+          plusProche = stationProche[i];
+        }
+      }
     }
-  }
 }
-console.log(stationProche[0].sta.name);
-console.log(plusProche.sta.name);

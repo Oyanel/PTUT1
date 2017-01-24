@@ -50,12 +50,13 @@ function initMap2(crd) {
         locations.push(LatLng);
     }
     var markers = locations.map(function (location, i) {
-        var infoWindow = new google.maps.InfoWindow({
-            content: "<b>" + stations[i].name + "</b></br>" +
-            "Nombre de vélos : " + stations[i].bike_stands + "</br>" +
-            "Nombre de places : " + stations[i].available_bike_stands + "</br>" +
-            "<button>Click Me !</button>"
-        });
+      var infoWindow = new google.maps.InfoWindow({
+        content:
+        "<b>" + stations[i].name + "</b></br>" +
+        "Nombre de vélos : " + stations[i].bike_stands + "</br>" +
+        "Nombre de places : " + stations[i].available_bike_stands + "</br>" +
+        "<button onclick='calcRoute(stations["+ i +"])'> Station la plus proche</button>"
+      });
 
         var marker = new google.maps.Marker({
             position: location,
@@ -75,24 +76,24 @@ function initMap2(crd) {
     });
 
     var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-    //calcRoute();
+
 }
 
+function calcRoute(station) {
+  comparaison(station);
+   current_pos = {lat: parseFloat(stationProche[0].sta.lat), lng: parseFloat(stationProche[0].sta.lng)};
+   end_pos = {lat: parseFloat(plusProche.sta.lat), lng: parseFloat(plusProche.sta.lng)};
+   var request = {
+      origin:current_pos,
+      destination:end_pos,
+      travelMode: google.maps.TravelMode.WALKING
+   };
 
-function calcRoute() {
-    current_pos = {lat: parseFloat(stationProche[0].sta.lat), lng: parseFloat(stationProche[0].sta.lng)};
-    end_pos = {lat: parseFloat(plusProche.sta.lat), lng: parseFloat(plusProche.sta.lng)};
-    var request = {
-        origin: current_pos,
-        destination: end_pos,
-        travelMode: google.maps.TravelMode.WALKING
-    };
-
-    directionsService.route(request, function (result, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(result);
-        }
-    });
+   directionsService.route(request, function(result, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+         directionsDisplay.setDirections(result);
+      }
+   });
+   stationProche = [];
+   plusProche=null;
 }
-
-
