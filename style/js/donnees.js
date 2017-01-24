@@ -29,12 +29,6 @@ $.ajax({
 
     }});
 
-function redirect(lat, lng) {
-  latitude = longitude = 0;
-  latitude = lat;
-  longitude = lng;
-  document.location.href="map.html";
-}
 //Conversion des degrés en radian
 function convertRad(input){
         return (Math.PI * input)/180;
@@ -53,27 +47,32 @@ function Distance(station1, station2){
     return d; //Distance en mètres
 }
 
-function comparaison(station){
-    for(var i=0; i<stations.length;i++){
+function comparaison(lat, lng, station){
+    var currentPos = {lat: lat, lng: lng};
+    if(station.available_bike_stands != 0) {
       var proche = {
-        sta: stations[i],
-        distance: Distance(station,stations[i])
+        sta: station
       };
-      if(stations[i].number != station.number){
-        if (Distance(station,stations[i])<=rayon) {
-          stationProche.push(proche);
+      plusProche = proche;
+    } else {
+      for(var i=0; i<stations.length;i++){
+        var proche = {
+          sta: stations[i],
+          distance: Distance(station, stations[i])
+        };
+          if (proche.distance<=rayon) {
+            stationProche.push(proche);
+          }
+      }
+
+      plusProche = stationProche[1];
+      for(var i=1; i<stationProche.length;i++){
+        if(stationProche[i].sta.available_bike_stands>0){
+          if(stationProche[i].distance < plusProche.distance){
+            plusProche = stationProche[i];
+          }
         }
-      } else {
-        stationProche.unshift(proche);
       }
     }
 
-    plusProche = stationProche[1];
-    for(var i=1; i<stationProche.length;i++){
-      if(stationProche[i].sta.available_bike_stands>0){
-        if(stationProche[i].distance < plusProche.distance){
-          plusProche = stationProche[i];
-        }
-      }
-    }
 }

@@ -1,14 +1,4 @@
-function initMap() {
-
-
-    // if (navigator.geolocation) {
-    //     navigator.geolocation.getCurrentPosition(maPosition);
-    //     lyon = {
-    //         lat: navigator.geolocation.getCurrentPosition().position.coords.latitude,
-    //         lng: navigator.geolocation.getCurrentPosition().position.coords.longitude
-    //     };
-    // }
-    // else lyon = {lat: 45.750000, lng: 4.850000};
+function getPosition() {
 
     var options = {
         // enableHighAccuracy: true,
@@ -23,19 +13,19 @@ function initMap() {
         console.log('Latitude : ' + pos.coords.latitude);
         console.log('Longitude: ' + pos.coords.longitude);
         console.log('More or less ' + pos.coords.accuracy + ' meters.');
-        initMap2(crd);
+        initMap(crd);
     }
 
     function error(err) {
         var crd = {lat: 45.750000, lng: 4.850000};
         console.warn('ERROR(${err.code}): ${err.message}');
-        initMap2(crd);
+        initMap(crd);
     }
 
     navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
-function initMap2(crd) {
+function initMap(crd) {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: crd
@@ -55,7 +45,7 @@ function initMap2(crd) {
         "<b>" + stations[i].name + "</b></br>" +
         "Nombre de vélos : " + stations[i].bike_stands + "</br>" +
         "Nombre de places : " + stations[i].available_bike_stands + "</br>" +
-        "<button onclick='calcRoute(stations["+ i +"])'> Station la plus proche</button>"
+        "<button onclick='calcRoute(" + crd.lat + "," + crd.lng + ",stations[" + i + "])'> Station la plus proche</button>"
       });
 
         var marker = new google.maps.Marker({
@@ -79,9 +69,9 @@ function initMap2(crd) {
 
 }
 
-function calcRoute(station) {
-  comparaison(station);
-   current_pos = {lat: parseFloat(stationProche[0].sta.lat), lng: parseFloat(stationProche[0].sta.lng)};
+function calcRoute(lat, lng, station) {
+  comparaison(lat, lng, station);
+   current_pos = {lat: parseFloat(lat), lng: parseFloat(lng)};
    end_pos = {lat: parseFloat(plusProche.sta.lat), lng: parseFloat(plusProche.sta.lng)};
    var request = {
       origin:current_pos,
