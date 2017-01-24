@@ -10,13 +10,15 @@ $( window ).scroll(function() {
 });
 
 $(document).ready(function (){
-   var screenHeight = $( window ).height() - (70 + $('footer .panel-footer').height());
-   $('.map_container').attr("style","height:"+screenHeight + "px");
+    var screenHeight = $( window ).height() - (80 + $('footer .panel-footer').height());
+    $('.map_container').attr("style","height:"+screenHeight + "px");
 
-   var filterCommuneWidth = $('button.filter_commune').width() + 40;
-   var filterStationWidth = $('button.filter_station').width() + 40;
+    var filterCommuneWidth = $('button.filter_commune').width() + 40;
+    var filterStationWidth = $('button.filter_station').width() + 40;
 
-   $('ul.filter_commune').attr("style","width:"+filterCommuneWidth + "px");
-   $('ul.filter_station').attr("style","width:"+filterStationWidth + "px");
+    var filterHeight = 26 * 6;
+
+    $('ul.filter_commune').attr("style","width:"+filterCommuneWidth + "px; height:"+filterHeight + "px");
+    $('ul.filter_station').attr("style","width:"+filterStationWidth + "px; height:"+filterHeight + "px");
 });
 

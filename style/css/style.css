@@ -88,6 +88,7 @@ a{
 /* liste */
 
 #liste{
+    overflow: scroll;
     color: #000;
 }
 
@@ -163,17 +164,16 @@ footer p{
     height: 100%;
 }
 .map_container {
-    margin-top:50px;
+    margin-top:60px;
 }
 
 input[type=text] {
     border-radius: 0;
 }
 
-collapsed {
-    color: #ffffff;
-}
 ul.dropdown-menu {
+    overflow-y: scroll;
+    z-index: 9999;
     border-radius: 0;
     border:none;
     text-align: center;

@@ -1,5 +1,5 @@
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" content="width=device-width, initial-scale=1.0" name="viewport">
     <title>PTUT</title>
     <link href="./style/css/bootstrap.min.css" rel="stylesheet">
     <link href="./style/css/style.css" rel="stylesheet">
