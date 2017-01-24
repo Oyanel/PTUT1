@@ -1,4 +1,3 @@
-
 // déterminer l'index des colonnes les colonnes
 var colonnes = {};
 $("#myTable thead th").each(function(index, th)
