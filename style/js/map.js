@@ -43,9 +43,9 @@ function initMap(crd) {
       var infoWindow = new google.maps.InfoWindow({
         content:
         "<b>" + stations[i].name + "</b></br>" +
-        "Nombre de vélos : " + stations[i].bike_stands + "</br>" +
-        "Nombre de places : " + stations[i].available_bike_stands + "</br>" +
-        "<button onclick='calcRoute(" + crd.lat + "," + crd.lng + ",stations[" + i + "])'> Station la plus proche</button>"
+        "Nombre de vélos : " + stations[i].available_bikes + "</br>" +
+        "Nombre de places libre: " + stations[i].available_bike_stands + "</br>" +
+        "<button onclick='calcRoute(" + crd.lat + "," + crd.lng + ",stations[" + i + "])'> Y aller</button>"
       });
 
         var marker = new google.maps.Marker({

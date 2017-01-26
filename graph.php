@@ -8,8 +8,8 @@
 <div class="background-image"></div>
 <div class="content container">
     <?php include_once './includes/header.html' ?>
-    <div class="centered container-fluid">
-        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div class="container-fluid">
+        <div id="chart_div" class="transparent"></div>
         <script src="style/js/graph.js"></script>
     </div>
     <?php include_once './includes/footer.php' ?>

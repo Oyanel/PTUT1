@@ -110,8 +110,14 @@ a{
 
 .search-panel button{
     padding: 20px;
-    padding: 20px;
     font-size: x-large;
+}
+
+@media screen and (max-width: 640px) {
+  .search-panel button{
+      padding: 5px;
+      font-size: large;
+  }
 }
 
 .supported{
@@ -148,6 +154,7 @@ footer .panel-footer{
     background-color: rgba(0,0,0,0.5);
 }
 
+
 footer p{
     color: #ffffff;
     text-transform: uppercase;
@@ -177,4 +184,17 @@ ul.dropdown-menu {
     border-radius: 0;
     border:none;
     text-align: center;
+}
+
+/* Graph */
+
+#chart_div {
+  width: 50%;
+  height: 25em;
+}
+
+@media screen and (max-width: 640px) {
+  #chart_div {
+    width: 100%;
+  }
 }
