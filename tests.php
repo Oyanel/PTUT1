@@ -3,15 +3,15 @@ include_once 'cronTask/Database.php';
 $conn = Database::getInstance();
 $conn->set_charset("utf8");
 if(!empty($conn)) {
-    $stationID = 10063;
+    $stationID = intval($_POST['id']);
     $stations = array();
     for ($i=0;$i <12;$i++) {
         $multiple = 7 * $i;
         $query =
-            "SELECT * 
+            "SELECT *
             FROM Station
-            WHERE last_update >= SUBDATE( SUBDATE( NOW( ) , " . $multiple . " ) , INTERVAL 1 HOUR ) 
-            AND last_update <= ADDDATE( SUBDATE( NOW( ) , " . $multiple . " ) , INTERVAL 1 HOUR ) 
+            WHERE last_update >= SUBDATE( SUBDATE( NOW( ) , " . $multiple . " ) , INTERVAL 20 MINUTE )
+            AND last_update <= ADDDATE( SUBDATE( NOW( ) , " . $multiple . " ) , INTERVAL 20 MINUTE )
             AND id=".$stationID."
             LIMIT 20;";
         $results = $conn->query($query);

@@ -6,6 +6,8 @@ var stationProche = [];
 var rayon = 500;
 
 var plusProche;
+var moyennePlaceDispo;
+var proche;
 
 // Requète de parsage du flux JSON dans le tableau JSON
 $.ajax({
@@ -56,23 +58,41 @@ function comparaison(lat, lng, station){
       plusProche = proche;
     } else {
       for(var i=0; i<stations.length;i++){
-        var proche = {
+        proche = {
           sta: stations[i],
-          distance: Distance(station, stations[i])
+          distance: Distance(station, stations[i]),
+          moyenne: 0,
         };
-          if (proche.distance<=rayon) {
-            stationProche.push(proche);
-          }
+        if (proche.distance<=rayon) {
+          stationProche.push(proche);
+        }
+
       }
 
       plusProche = stationProche[1];
       for(var i=1; i<stationProche.length;i++){
+        $.ajax({
+          type: "POST",
+          url: "http://localhost/PTUT1/tests.php",
+          data: {'id': stationProche[i].sta.number},
+          async: false,
+          success:function(context){
+            stationProche[i].moyenne = context;
+
+          },
+          error:function(context) {
+            console.log(context);
+          }
+        });
         if(stationProche[i].sta.available_bike_stands>0){
-          if(stationProche[i].distance < plusProche.distance){
-            plusProche = stationProche[i];
+          if(stationProche[i].moyenne > 5) {
+            if(stationProche[i].distance < plusProche.distance){
+              plusProche = stationProche[i];
+            }
           }
         }
       }
+      alert(plusProche.moyenne);
     }
 
 }
