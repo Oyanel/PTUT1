@@ -12,8 +12,7 @@ if(!empty($conn)) {
             FROM Station
             WHERE last_update >= SUBDATE( SUBDATE( NOW( ) , " . $multiple . " ) , INTERVAL 20 MINUTE )
             AND last_update <= ADDDATE( SUBDATE( NOW( ) , " . $multiple . " ) , INTERVAL 20 MINUTE )
-            AND id=".$stationID."
-            LIMIT 20;";
+            AND id=".$stationID.";";
         $results = $conn->query($query);
         foreach ($results as $result) {
             array_push($stations,intval($result['available_bike_stands']));

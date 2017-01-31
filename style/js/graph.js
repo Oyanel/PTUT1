@@ -51,18 +51,42 @@ function remplirTab(tableau) {
    }
 }
 remplirTab(tab);
+moyenneStation = new Array();
+$.ajax({
+  type: "POST",
+  url: "http://localhost/PTUT1/moyennePlacesJournee.php",
+  data: {'id': 10063},
+  async: false,
+  success:function(context){
+        moyenneStation = context;
 
+  },
+  dataType:"json"
+});
+var tab2 = [["Heure","Moyenne de places libres"]];
+console.log(moyenneStation.lenght);
+for (var i = 0; i<moyenneStation.lenght; i++) {
+  console.log(moyenneStation[i]);
+  tab2.push([i + ":00", moyenneStation[i]]);
+}
+console.log(tab2);
 google.charts.load('current', {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
         var data = google.visualization.arrayToDataTable(tab);
-
         var options = {
           title: 'Nombre de stations vélo\'v par commune',
           legend: { position: 'none' },
         };
-
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.BarChart(document.getElementById('stationCommune'));
         chart.draw(data, options);
+
+        var data2 = google.visualization.arrayToDataTable(moyenneStation);
+        var options2 = {
+          title: 'Moyenne de vélo disponible par heure',
+          legend: { position: 'none' },
+        };
+        var chart2 = new google.visualization.BarChart(document.getElementById('moyennePlaceDispo'));
+        chart2.draw(data2, options2);
       }

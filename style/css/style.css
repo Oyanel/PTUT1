@@ -188,13 +188,13 @@ ul.dropdown-menu {
 
 /* Graph */
 
-#chart_div {
+.chart_div {
   width: 50%;
   height: 25em;
 }
 
 @media screen and (max-width: 640px) {
-  #chart_div {
+  .chart_div {
     width: 100%;
   }
 }

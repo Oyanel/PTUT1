@@ -61,7 +61,7 @@ function comparaison(lat, lng, station){
         proche = {
           sta: stations[i],
           distance: Distance(station, stations[i]),
-          moyenne: 0,
+          moyenne: 0
         };
         if (proche.distance<=rayon) {
           stationProche.push(proche);
@@ -69,11 +69,16 @@ function comparaison(lat, lng, station){
 
       }
 
-      plusProche = stationProche[1];
+      plusProche = {
+        sta: station,
+        distance: 500,
+        moyenne: 0
+      };
+      console.log(plusProche.sta.name);
       for(var i=1; i<stationProche.length;i++){
         $.ajax({
           type: "POST",
-          url: "http://localhost/PTUT1/tests.php",
+          url: "http://localhost/PTUT1/moyennePlaces.php",
           data: {'id': stationProche[i].sta.number},
           async: false,
           success:function(context){
@@ -87,12 +92,13 @@ function comparaison(lat, lng, station){
         if(stationProche[i].sta.available_bike_stands>0){
           if(stationProche[i].moyenne > 5) {
             if(stationProche[i].distance < plusProche.distance){
+              console.log(stationProche[i].sta.name + " : " + stationProche[i].moyenne + ", " + stationProche[i].distance);
               plusProche = stationProche[i];
             }
           }
         }
       }
-      alert(plusProche.moyenne);
+      console.log(plusProche.sta.name + " : " + plusProche.moyenne);
     }
 
 }
