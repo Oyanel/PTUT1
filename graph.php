@@ -10,8 +10,8 @@
     <?php include_once './includes/header.html' ?>
     <div class="container-fluid">
         <div id="stationCommune" class="chart_div transparent"></div>
-        <select id="stationId"></select>
         <div id="moyennePlaceDispo" class="chart_div transparent"></div>
+        <select id="stationId"></select>
         <script src="style/js/graph.js"></script>
     </div>
     <?php include_once './includes/footer.php' ?>
