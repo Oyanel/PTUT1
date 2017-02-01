@@ -51,41 +51,60 @@ function remplirTab(tableau) {
    }
 }
 remplirTab(tab);
-moyenneStation = new Array();
-$.ajax({
-  type: "POST",
-  url: "http://localhost/PTUT1/moyennePlacesJournee.php",
-  data: {'id': 10063},
-  async: false,
-  success:function(context){
-        moyenneStation = context;
 
-  },
-  dataType:"json"
-});
-var tab2 = [["Heure","Moyenne de places libres"]];
-for (var i = 0; i<23; i++) {
-  console.log(moyenneStation[i]);
-  tab2.push([i + ":00", moyenneStation[i]]);
-}
-console.log(tab2);
 google.charts.load('current', {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart2);
+
+(function() { // don't leak
+    var elm = document.getElementById('stationId'), // get the select
+        df = document.createDocumentFragment(); // create a document fragment to hold the options while we create them
+    for (var i = 0; i < stations.length; i++) { // loop, i like 42.
+        var option = document.createElement('option'); // create the option element
+        option.value = stations[i].number; // set the value property
+        option.appendChild(document.createTextNode(stations[i].name)); // set the textContent in a safe way.
+        df.appendChild(option); // append the option to the document fragment
+    }
+    elm.appendChild(df); // append the document fragment to the DOM. this is the better way rather than setting innerHTML a bunch of times (or even once with a long string)
+    //drawChart2(stations[0].number);
+}());
+
+$('select').on('change', function() {
+  drawChart2(this.value);
+})
 
 function drawChart() {
         var data = google.visualization.arrayToDataTable(tab);
         var options = {
           title: 'Nombre de stations vélo\'v par commune',
           legend: { position: 'none' },
+          pieHole: 0.4,
         };
-        var chart = new google.visualization.BarChart(document.getElementById('stationCommune'));
+        var chart = new google.visualization.PieChart(document.getElementById('stationCommune'));
         chart.draw(data, options);
-
-        var data2 = google.visualization.arrayToDataTable(tab2);
-        var options2 = {
-          title: 'Moyenne de vélo disponible par heure',
-          legend: { position: 'none' },
-        };
-        var chart2 = new google.visualization.BarChart(document.getElementById('moyennePlaceDispo'));
-        chart2.draw(data2, options2);
       }
+function drawChart2(id) {
+  moyenneStation = new Array();
+  $.ajax({
+    type: "POST",
+    url: "http://localhost/PTUT1/moyennePlacesJournee.php",
+    data: {'id': id},
+    async: false,
+    success:function(context){
+          moyenneStation = context;
+
+    },
+    dataType:"json"
+  });
+  var tab2 = [["Heure","Moyenne de places libres"]];
+  for (var i = 0; i<23; i++) {
+    tab2.push([i + ":00", moyenneStation[i]]);
+  }
+  var data2 = google.visualization.arrayToDataTable(tab2);
+  var options2 = {
+    title: 'Moyenne de vélo disponible par heure',
+    legend: { position: 'none' },
+  };
+  var chart2 = new google.visualization.LineChart(document.getElementById('moyennePlaceDispo'));
+  chart2.draw(data2, options2);
+}

@@ -3,7 +3,12 @@ include_once 'cronTask/Database.php';
 $conn = Database::getInstance();
 $conn->set_charset("utf8");
 if(!empty($conn)) {
-    $stationID = 10063;//intval($_POST['id']);
+  if(isset($_POST['id'])) {
+    $stationID = intval($_POST['id']);
+  }
+  else {
+    $stationID = 10063;
+  }
     $bikeAvailablePerHour = array();
     for($h=0;$h<24;$h++) {
         $sommeMoyenne = array();
