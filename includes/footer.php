@@ -1,6 +1,6 @@
 <footer>
-    <div class="<?php if(!preg_match('/liste.php$/' , "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]")) echo 'navbar-fixed-bottom panel-footer'; ?>">
-        <p class="navbar-header">
+    <div class="<?php if(!preg_match('/liste.php$|graph.php$/' , "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]")) echo 'navbar-fixed-bottom panel-footer'; ?>">
+        <p class="navbar-header projectLabel">
             Velo'v project
         </p>
         <img class="navbar-right polytech" src="./media/images/polytech_logo.png">

@@ -164,6 +164,12 @@ footer p{
 
 .polytech {
     margin-right: 20px;
+    float: right;
+}
+
+.projectLabel{
+    float: left;
+    margin-left: 10px;
 }
 
 /* fin footer */
@@ -189,8 +195,11 @@ ul.dropdown-menu {
 /* Graph */
 
 .chart_div {
-  width: 50%;
-  height: 25em;
+    width: auto;
+    height: 25em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
 }
 
 @media screen and (max-width: 640px) {
