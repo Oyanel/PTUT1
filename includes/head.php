@@ -2,6 +2,7 @@
     <meta charset="utf-8" content="width=device-width, initial-scale=1.0" name="viewport">
     <title>PTUT</title>
     <link href="./style/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./media/images/favicon.png" />
     <link href="./style/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
